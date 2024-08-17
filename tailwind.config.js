@@ -58,9 +58,15 @@ module.exports = {
         'col-11': '91.66%',
         'col-12': '100%'
       },
+      colors:
+      {
+        'primary': '#19858C',
+        'background': '#004852'
+      },
       borderRadius:
       {
-        'circular': '50%'
+        'circular': '50%',
+        'panel': '3em'
       },
       dropShadow:
       {

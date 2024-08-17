@@ -554,69 +554,239 @@ video {
   --tw-contain-style:  ;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.min-h-\[\] {
+  min-height: ;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-\[1\.5em\] {
+  gap: 1.5em;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-\[3em\] {
+  border-radius: 3em;
+}
+
+.rounded-panel {
+  border-radius: 3em;
+}
+
+.rounded-\[2px\] {
+  border-radius: 2px;
+}
+
+.rounded-circular {
+  border-radius: 50%;
+}
+
+.rounded-\[1em\] {
+  border-radius: 1em;
+}
+
+.border-\[1px\] {
+  border-width: 1px;
+}
+
+.border-\[0\.5em\] {
+  border-width: 0.5em;
+}
+
+.border-primary {
+  --tw-border-opacity: 1;
+  border-color: rgb(25 133 140 / var(--tw-border-opacity));
+}
+
+.bg-background {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 72 82 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.px-\[3em\] {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.py-\[2em\] {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.py-\[3em\] {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.font-Inter-EXB {
+  font-family: Inter ExtraBold;
+}
+
+.font-Inter-B {
+  font-family: Inter Bold;
+}
+
+.text-\[16px\] {
+  font-size: 16px;
+}
+
+.text-\[3em\] {
+  font-size: 3em;
+}
+
+.text-\[2em\] {
+  font-size: 2em;
+}
+
+.text-primary {
+  --tw-text-opacity: 1;
+  color: rgb(25 133 140 / var(--tw-text-opacity));
+}
+
 /*#region Inter Fonts*/
 
-/* Inter-Light font */
+/* Inter Light font */
 
 @font-face
 {
-  font-family: 'Inter-Light';
+  font-family: 'Inter Light';
 
   src: url('./Assets/Inter/Inter-Light.ttf');
 }
 
-/* Inter-Regular font */
+/* Inter Regular font */
 
 @font-face
 {
-  font-family: 'Inter-Regular';
+  font-family: 'Inter Regular';
 
   src: url('./Assets/Inter/Inter-Regular.ttf');
 }
 
-/* Inter-Medium font */
+/* Inter Medium font */
 
 @font-face
 {
-  font-family: 'Inter-Medium';
+  font-family: 'Inter Medium';
 
   src: url('./Assets/Inter/Inter-Medium.ttf');
 }
 
-/* Inter-SemiBold font */
+/* Inter SemiBold font */
 
 @font-face
 {
-  font-family: 'Inter-SemiBold';
+  font-family: 'Inter SemiBold';
 
   src: url('./Assets/Inter/Inter-SemiBold.ttf');
 }
 
-/* Inter-Bold font */
+/* Inter Bold font */
 
 @font-face
 {
-  font-family: 'Inter-Bold';
+  font-family: 'Inter Bold';
 
   src: url('./Assets/Inter/Inter-Bold.ttf');
 }
 
-/* InterExtra-Bold font */
+/* Inter ExtraBold font */
 
 @font-face
 {
-  font-family: 'Inter-ExtraBold';
+  font-family: 'Inter ExtraBold';
 
   src: url('./Assets/Inter/Inter-ExtraBold.ttf');
 }
 
-/* Inter-Black font */
+/* Inter Black font */
 
 @font-face
 {
-  font-family: 'Inter-Black';
+  font-family: 'Inter Black';
 
   src: url('./Assets/Inter/Black.ttf');
 }
 
 /*#endregion*/
+
+.after\:clear-both::after {
+  content: var(--tw-content);
+  clear: both;
+}
+
+.after\:table::after {
+  content: var(--tw-content);
+  display: table;
+}
+
+.after\:content-none::after {
+  --tw-content: none;
+  content: var(--tw-content);
+}
