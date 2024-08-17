@@ -61,6 +61,7 @@ module.exports = {
       colors:
       {
         'primary': '#19858C',
+        'light': '#EDFAFA',
         'background': '#004852'
       },
       borderRadius:
@@ -70,7 +71,7 @@ module.exports = {
       },
       dropShadow:
       {
-        'default': '0 16px 32px rgba(0, 0, 0, 0.25)'
+        'default': '0 16px 8px rgba(0, 0, 0, 0.25)'
       },
     },
   },
