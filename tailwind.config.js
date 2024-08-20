@@ -60,9 +60,12 @@ module.exports = {
       },
       colors:
       {
-        'primary': '#19858C',
-        'light': '#EDFAFA',
-        'background': '#004852'
+        'primary': '#0071e3',
+        'light': '#0071e3',
+        'light-transparent': 'rgba(0, 113, 227, 0.2)',
+        'light-invisible': 'rgba(0, 113, 227, 0)',
+        'placeholder': '#c0dbff',
+        'background': '#f5f5f7'
       },
       borderRadius:
       {
@@ -71,7 +74,9 @@ module.exports = {
       },
       dropShadow:
       {
-        'default': '0 16px 8px rgba(0, 0, 0, 0.25)'
+        'default': '0 16px 16px rgba(0, 113, 227, 0.10)',
+        'field': '0 8px 8px rgba(0, 113, 227, 0.25)',
+        'button': '0 12px 8px rgba(0, 113, 227, 0.25)'
       },
     },
   },

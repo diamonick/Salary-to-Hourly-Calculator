@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hourly to Salary Calculator</title>
+    <title>Salary to Hourly Calculator</title>
     <link rel="icon" type="image/svg" href="./Assets/Icons/Favicon.svg">
     <link rel="stylesheet" href="tailwindStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
@@ -16,8 +16,8 @@
         <div class="Main-Content
         flex flex-row justify-between items-center gap-[3em] w-full h-full px-[2em] py-[2em]">
 
-            <!-- Hourly to Salary Calculator (Left) -->
-            <div class="Hourly-To-Salary-Calculator-Panel
+            <!-- Salary to Hourly Calculator (Left) -->
+            <div class="Salary-To-Hourly-Calculator-Panel
             flex flex-col justify-between items-start p-[2em]
             bg-white w-full h-full rounded-panel drop-shadow-default">
 
@@ -26,7 +26,7 @@
                     <!-- Header -->
                     <h1 class="Header
                     font-Inter-EXB text-[2.5em] text-left text-primary">
-                        Hourly to Salary Calculator
+                        Salary to Hourly Calculator
                     </h1>
                     <!-- Divider -->
                     <hr class="Divider border-primary w-full border-[0.2em] rounded-[0.4em]">
@@ -50,10 +50,16 @@
                             </h3>
                         </div>
                         <!-- Salary Field -->
-                        <input class="Field max-w-[15em]
-                        bg-light px-[1em] py-[0.5em] rounded-[0.75em]
-                        font-Inter-M text-[1.5em] text-left text-primary"
-                        type="text">
+                        <div class="Full-Field relative flex w-[24em] h-[4em]">
+                            <img class="Icon absolute v-center left-[1em] size-[2em] z-10"
+                            src="./Assets/Icons/USD_Icon.svg" alt="Salary Icon">
+                            <input class="Salary-Field
+                            bg-white focus:bg-white w-full h-full pl-[2.5em] p-[1em] rounded-[0.75em]
+                            font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
+                            border-light-invisible border-[3px]
+                            outline outline-light-invisible drop-shadow-field z-0"
+                            type="number" placeholder="30000" value="30000" min="0" max="9999999">
+                        </div>
                     </div>
                     
                     <!-- Hours Worked Per Week -->
@@ -71,10 +77,14 @@
                             </h3>
                         </div>
                         <!-- Hours Worked Per Week Field -->
-                        <input class="Field max-w-[15em]
-                        bg-light px-[1em] py-[0.5em] rounded-[0.75em]
-                        font-Inter-M text-[1.5em] text-left text-primary"
-                        type="text">
+                        <div class="Full-Field relative flex w-[24em] h-[4em]">
+                            <input class="Hours-Per-Week-Field
+                            bg-white focus:bg-white w-full h-full p-[1em] rounded-[0.75em]
+                            font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
+                            border-light-invisible border-[3px]
+                            outline outline-light-invisible drop-shadow-field z-0"
+                            type="number" placeholder="40" value="40" min="0" max="999">
+                        </div>
                     </div>
                     
                     <!-- Weeks Worked Per Year -->
@@ -92,16 +102,20 @@
                             </h3>
                         </div>
                         <!-- Weeks Worked Per Year Field -->
-                        <input class="Field max-w-[15em]
-                        bg-light px-[1em] py-[0.5em] rounded-[0.75em]
-                        font-Inter-M text-[1.5em] text-left text-primary"
-                        type="text">
+                        <div class="Full-Field relative flex w-[24em] h-[4em]">
+                            <input class="Weeks-Per-Year-Field
+                            bg-white focus:bg-white w-full h-full p-[1em] rounded-[0.75em]
+                            font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
+                            border-light-invisible border-[3px]
+                            outline outline-light-invisible drop-shadow-field z-0"
+                            type="number" placeholder="52" value="52" min="0" max="999">
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Calculate Button -->
                 <div class="Calculate-Button
-                flex flex-row justify-center items-center gap-[2em]
+                flex flex-row justify-center items-center gap-[2em] drop-shadow-button
                 bg-primary w-full px-[2.5em] py-[1.5em] rounded-[1.5em] cursor-pointer">
                     <!-- Button Icon -->
                     <img class="Button-Icon
@@ -138,7 +152,7 @@
                     <!-- Hourly Pay -->
                     <div class="Hourly-Pay
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#EDEDED] rounded-[1.5em]">
+                    bg-[#eaf3ff] rounded-[1.5em]">
                         <!-- Hourly Pay Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"
@@ -159,7 +173,7 @@
                     <!-- Monthly Pay -->
                     <div class="Monthly-Pay
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#EDEDED] rounded-[1.5em]">
+                    bg-[#eaf3ff] rounded-[1.5em]">
                         <!-- Monthly Pay Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"
@@ -180,7 +194,7 @@
                     <!-- Per Week -->
                     <div class="Weekly-Pay
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#EDEDED] rounded-[1.5em]">
+                    bg-[#eaf3ff] rounded-[1.5em]">
                         <!-- Per Week Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"
@@ -201,7 +215,7 @@
                     <!-- % of US Median Salary -->
                     <div class="Percent-US-Median-Salary
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#EDEDED] rounded-[1.5em]">
+                    bg-[#eaf3ff] rounded-[1.5em]">
                         <!-- % of US Median Salary Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"

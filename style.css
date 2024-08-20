@@ -46,3 +46,36 @@
     src: url('./Assets/Inter/Black.ttf');
 }
 /*#endregion*/
+
+@layer base
+{
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button
+    {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+}
+
+@layer components
+{
+    .unselectable-element
+    {
+      @apply select-none pointer-events-none;
+    }
+    
+    .element-center
+    {
+      @apply top-2/4 -translate-y-2/4 left-2/4 -translate-x-2/4;
+    }
+
+    .h-center
+    {
+      @apply left-2/4 -translate-x-2/4;
+    }
+    
+    .v-center
+    {
+      @apply top-2/4 -translate-y-2/4;
+    }
+}
