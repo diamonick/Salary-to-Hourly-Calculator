@@ -845,16 +845,6 @@ input[type="number"]::-webkit-inner-spin-button,
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.placeholder-\[\#c0dbff\]::-moz-placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(192 219 255 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-\[\#c0dbff\]::placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(192 219 255 / var(--tw-placeholder-opacity));
-}
-
 .placeholder-placeholder::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(192 219 255 / var(--tw-placeholder-opacity));
