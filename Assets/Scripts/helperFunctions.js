@@ -8,9 +8,13 @@ export
 
 //#region Miscellaneous Function(s)
 //#region Random Function(s)
-function getRand(length)
+function getRand(length, precision = -1)
 {
-    return Math.random() * length;
+    let rand = Math.random() * length;
+    let precisionScale = precision * 10;
+    let result = precision == -1 ? rand : Math.round(rand * precisionScale) / precisionScale;
+
+    return result;
 }
 
 function getRandInt(length)
@@ -18,9 +22,13 @@ function getRandInt(length)
     return Math.floor(Math.random() * length);
 }
 
-function getRandRange(min, max)
+function getRandRange(min, max, precision = -1)
 {
-    return Math.random() * (max - min) + min;
+    let rand = Math.random() * (max - min) + min;
+    let precisionScale = precision * 10;
+    let result = precision == -1 ? rand : Math.round(rand * precisionScale) / precisionScale;
+
+    return result;
 }
 
 function getRandIntRange(min, max)

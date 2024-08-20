@@ -233,30 +233,46 @@ function Main()
     calculateButton.addEvent("click", calculateResults);
 }
 
-function onHoverInputField(inputField)
-{
-    const hoverTimeline = gsap.timeline({defaults: {duration: 0.25, ease: 'none'}});
-
-    hoverTimeline
-        .to(inputField, {borderColor: 'rgba(39, 207, 217, 1)'})
-        .to(inputField, {outlineWidth: '8px'}, getZeroRelDelay());
-}
-
-function calculateResults()
+async function calculateResults()
 {
     let hourlyPayAmountText, monthlyPayAmountText, weeklyPayAmountText, percentUSMedianSalaryAmountText;
 
+    let iterationCount = 0;
+    let numOfIterations = 25;
     let hourlyPay = calculateHourlyPay();
     let monthlyPay = calculateMonthlyPay();
     let weeklyPay = calculateWeeklyPay();
     let percentOfUSMedianSalary = calculatePercentOfUSMedianSalary();
+    
+    let hourlyPayDigitCount = Math.ceil(Math.log10(hourlyPay + 1));
+    let monthlyPayDigitCount = Math.ceil(Math.log10(monthlyPay + 1));
+    let weeklyPayDigitCount = Math.ceil(Math.log10(weeklyPay + 1));
+    let percentOfUSMedianSalaryDigitCount = Math.ceil(Math.log10(weeklyPay + 1));
+
+    while (iterationCount < numOfIterations)
+    {
+        iterationCount++;
+        
+        let hourlyPayRandomValue = getRandRange(Math.pow(10, hourlyPayDigitCount - 1), Math.pow(10, hourlyPayDigitCount), 2);
+        let monthlyPayRandomValue = getRandRange(Math.pow(10, monthlyPayDigitCount - 1), Math.pow(10, hourlyPayDigitCount), 2);
+        let weeklyPayRandomValue = getRandRange(Math.pow(10, weeklyPayDigitCount - 1), Math.pow(10, weeklyPayDigitCount), 2);
+        let percentOfUSMedianSalaryRandomValue = getRandRange(Math.pow(10, percentOfUSMedianSalaryDigitCount - 1), Math.pow(10, percentOfUSMedianSalaryDigitCount), 1);
+
+        hourlyPayAmount.innerHTML = iterationCount >= 10 ? `$${hourlyPay}` : `$${hourlyPayRandomValue}`;
+        monthlyPayAmount.innerHTML = iterationCount >= 15 ? `$${monthlyPay}` : `$${monthlyPayRandomValue}`;
+        weeklyPayAmount.innerHTML = iterationCount >= 20 ? `$${weeklyPay}` : `$${weeklyPayRandomValue}`;
+        percentUSMedianSalaryAmount.innerHTML = `${percentOfUSMedianSalaryRandomValue.toFixed(1)}%`;
+
+        await sleep(0.025);
+    }
 
     hourlyPayAmount.innerHTML = `$${hourlyPay}`;
     monthlyPayAmount.innerHTML = `$${monthlyPay}`;
     weeklyPayAmount.innerHTML = `$${weeklyPay}`;
-    percentUSMedianSalaryAmount.innerHTML = `${percentOfUSMedianSalary}%`;
+    percentUSMedianSalaryAmount.innerHTML = `${percentOfUSMedianSalary.toFixed(1)}%`;
 }
 
+//#region Calculation Function(s)
 function calculateHourlyPay()
 {
     let salary = salaryField.getValue();                        // Salary per year
@@ -308,8 +324,9 @@ function calculatePercentOfUSMedianSalary()
     console.log(`% of US Median Salary: ${result}%`);
     return result;
 }
+//#endregion
 
-function shuffleText(text, prefix, suffix)
+function shuffleText(text)
 {
     var a = text.split(""),
         n = a.length;
