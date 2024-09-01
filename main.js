@@ -118,6 +118,39 @@ class Button
     //#endregion
 }
 
+class Icon
+{
+    selector = "";
+    element;
+
+    // Icon constructor
+    constructor(_selector)
+    {
+        this.selector = _selector;
+        this.element = getElement(`${_selector}`);
+
+        let $self = this;
+
+        // Mouse events
+        this.element.addEventListener("mouseenter", function() {$self.highlightIcon();});
+        this.element.addEventListener("mouseleave", function() {$self.unhighlightIcon();});
+    }
+    
+    //#region Icon Function(s)
+    // Call event when the mouse cursor is over the icon.
+    highlightIcon()
+    {
+        gsap.to(this.element, {duration: 0.5, scale: 1.1, ease: 'power4.out'});
+    }
+
+    // Call event when the mouse cursor is moved out of the icon.
+    unhighlightIcon()
+    {
+        gsap.to(this.element, {duration: 0.5, scale: 1, ease: 'power4.out'});
+    }
+    //#endregion
+}
+
 class InputField
 {
     selector = "";
@@ -224,6 +257,20 @@ class InputField
 }
 
 //#region Variables
+const splashScreen = getElement(".Splash-Screen");
+const splashAppBlock = getElement(".Splash-App-Block");
+
+const salaryToHourlyCalculatorPanel = getElement(".Salary-To-Hourly-Calculator-Panel");
+const calculationResultsPanel = getElement(".Calculation-Results-Panel");
+
+const salaryIcon = new Icon(".Salary-Icon");
+const hoursPerWeekIcon = new Icon(".Hours-Worked-Per-Week-Icon");
+const weeksPerYearIcon = new Icon(".Weeks-Worked-Per-Year-Icon");
+const hourlyPayIcon = new Icon(".Hourly-Pay-Icon");
+const monthlyPayIcon = new Icon(".Monthly-Pay-Icon");
+const weeklyPayIcon = new Icon(".Weekly-Pay-Icon");
+const percentUSMedianSalaryIcon = new Icon(".Percent-US-Median-Salary-Icon");
+
 const salaryField = new InputField(".Salary-Field");
 const hoursPerWeekField = new InputField(".Hours-Per-Week-Field");
 const weeksPerYearField = new InputField(".Weeks-Per-Year-Field");
@@ -240,6 +287,8 @@ const weeklyPayAmount = getElement(".Weekly-Pay .Amount");
 const percentUSMedianSalaryAmount = getElement(".Percent-US-Median-Salary .Amount");
 
 const USMedianSalary = 59228;
+const splashScreenIntroTL = gsap.timeline();
+const showPanelsTL = gsap.timeline({defaults: {ease: 'power4.out'}});
 const calculatingTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.in'}});
 const resultsTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.out'}});
 //#endregion
@@ -248,6 +297,32 @@ function Main()
 {
     // Add calculateResults function to this button's onclick event.
     calculateButton.addEvent("click", calculateResults);
+
+    //showPanels();
+    playSplashScreenIntro();
+}
+
+function playSplashScreenIntro()
+{
+    splashScreenIntroTL
+        .set(salaryToHourlyCalculatorPanel, {x: 0, y: 64, opacity: 0, pointerEvents: 'none'})
+        .set(calculationResultsPanel, {x: 0, y: 64, opacity: 0, pointerEvents: 'none'})
+        .set(splashAppBlock, {scale: 1, opacity: 0})
+        .to(splashAppBlock, {duration: 1.5, delay: 0.25, opacity: 1})
+        .to(splashAppBlock, {duration: 3, scale: 1.2, ease: 'none'}, getZeroRelDelay())
+        .to(splashAppBlock, {duration: 1, opacity: 0}, getRelDelay(2))
+        .to(splashScreen, {duration: 0.5, opacity: 0})
+        .to(salaryToHourlyCalculatorPanel, {duration: 1, x: 0, y: 0, opacity: 1})
+        .to(calculationResultsPanel, {duration: 1, x: 0, y: 0, opacity: 1}, getRelDelay(0.1))
+        .set(salaryToHourlyCalculatorPanel, {pointerEvents: 'auto'})
+        .set(calculationResultsPanel, {pointerEvents: 'auto'});
+}
+
+function showPanels()
+{
+    showPanelsTL
+        .to(salaryToHourlyCalculatorPanel, {duration: 1, x: 0, y: 0, opacity: 1})
+        .to(calculationResultsPanel, {duration: 1, x: 0, y: 0, opacity: 1}, getRelDelay(0.1));
 }
 
 async function calculateResults()
