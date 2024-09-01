@@ -11,25 +11,48 @@
 </head>
 
 <!-- Main Body -->
-<body class="text-[16px] bg-background m-0 p-0 min-h-screen overflow-hidden">
-    <div class="Main h-screen after:content-none after:clear-both after:table">
-        <div class="Main-Content
-        flex flex-row justify-between items-center gap-[3em] w-full h-full px-[2em] py-[2em]">
+<body class="text-[8px] mobile-md:text-[9px] mobile-lg:text-[11px] sm:text-[12px] md:text-[12px] md-lg:text-[12px] lg:text-[12px]
+bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
+    <div class="Main h-full flex flex-col justify-between min-h-[825px] after:content-none after:clear-both after:table">
+        <!-- Navigation Section -->
+        <div class="Nav-Section text-[12px] sm:text-[16px]
+        bg-primary p-[2em] flex flex-col justify-center items-center gap-[1em]">
+            <div class="Nav-Block
+            flex flex-col justify-center items-center gap-[0.5em]">
+                <img class="App-Logo
+                size-[4em] drop-shadow-app-logo"
+                src="./Assets/Icons/Favicon.svg">
+                <p class="Developer-Name
+                text-[1em] text-center text-white font-Inter-B">
+                Salary to Hourly Calculator
+                </p>
+            </div>
+        </div>
+        <div class="Main-Content relative
+        flex flex-col lg:flex-row justify-center items-center gap-[3em] w-full h-full px-[2em] py-[4em]
+        bg-repeat bg-fixed bg-Dotted-Grid-Pattern bg-grid-size animate-grid-infinite-scroll bg-opacity-10">
 
             <!-- Salary to Hourly Calculator (Left) -->
-            <div class="Salary-To-Hourly-Calculator-Panel
-            flex flex-col justify-between items-start p-[2em]
-            bg-white w-full h-full rounded-panel drop-shadow-default">
+            <div class="Salary-To-Hourly-Calculator-Panel relative
+            flex flex-col justify-between items-center gap-[2em] p-[2em]
+            bg-white w-full min-h-[50em] sm:min-h-[48em] rounded-panel drop-shadow-default">
 
                 <!-- Panel Header -->
                 <div class="Panel-Header w-full">
                     <!-- Header -->
                     <h1 class="Header
-                    font-Inter-EXB text-[2.5em] text-left text-primary">
+                    font-Inter-EXB text-[2.3em] text-left text-dark">
                         Salary to Hourly Calculator
                     </h1>
                     <!-- Divider -->
-                    <hr class="Divider border-primary w-full border-[0.2em] rounded-[0.4em]">
+                    <hr class="Divider border-dark w-full border-[0.2em] rounded-[0.4em]">
+                    
+                    <!-- Description -->
+                    <p class="Description
+                    font-Inter-M text-[1.25em] text-left text-paragraph pt-[1em]">
+                        Easily convert your annual salary to an equivalent hourly wage and see how much you
+                        earn hourly, weekly, and monthly.
+                    </p>
                 </div>
                 
                 <!-- Panel Body -->
@@ -45,7 +68,7 @@
                             w-fit h-[1.75em]"
                             src="./Assets/Icons/Salary_Icon.svg" alt="Salary Icon">
                             <h3 class="Title
-                            font-Inter-B text-[1.5em] text-left text-primary">
+                            font-Inter-B text-[1.5em] text-left text-dark">
                                 Salary:
                             </h3>
                         </div>
@@ -56,7 +79,7 @@
                             <input class="Salary-Field
                             bg-white focus:bg-white w-full h-full pl-[2.5em] p-[1em] rounded-[0.75em]
                             font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
-                            border-light-invisible border-[3px]
+                            border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
                             type="number" placeholder="30000" value="30000" min="0" max="9999999">
                         </div>
@@ -72,7 +95,7 @@
                             w-fit h-[1.75em]"
                             src="./Assets/Icons/Hours_Per_Week_Icon.svg" alt="Salary Icon">
                             <h3 class="Title
-                            font-Inter-B text-[1.5em] text-left text-primary">
+                            font-Inter-B text-[1.5em] text-left text-dark">
                                 Hours Worked Per Week:
                             </h3>
                         </div>
@@ -81,7 +104,7 @@
                             <input class="Hours-Per-Week-Field
                             bg-white focus:bg-white w-full h-full p-[1em] rounded-[0.75em]
                             font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
-                            border-light-invisible border-[3px]
+                            border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
                             type="number" placeholder="40" value="40" min="0" max="999">
                         </div>
@@ -97,7 +120,7 @@
                             w-fit h-[1.75em]"
                             src="./Assets/Icons/Weeks_Per_Year_Icon.svg" alt="Salary Icon">
                             <h3 class="Title
-                            font-Inter-B text-[1.5em] text-left text-primary">
+                            font-Inter-B text-[1.5em] text-left text-dark">
                                 Weeks Worked Per Year:
                             </h3>
                         </div>
@@ -106,7 +129,7 @@
                             <input class="Weeks-Per-Year-Field
                             bg-white focus:bg-white w-full h-full p-[1em] rounded-[0.75em]
                             font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
-                            border-light-invisible border-[3px]
+                            border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
                             type="number" placeholder="52" value="52" min="0" max="999">
                         </div>
@@ -130,19 +153,19 @@
             </div>
             
             <!-- Calculation Results (Right) -->
-            <div class="Calculation-Results-Panel
+            <div class="Calculation-Results-Panel relative
             flex flex-col justify-between items-start p-[2em] gap-[2em]
-            bg-white w-full h-full rounded-panel drop-shadow-default">
+            bg-white w-full  min-h-[50em] lg:min-h-[48em] rounded-panel drop-shadow-default">
 
                 <!-- Panel Header -->
                 <div class="Panel-Header w-full">
                     <!-- Header -->
                     <h1 class="Header
-                    font-Inter-EXB text-[2.5em] text-left text-primary">
+                    font-Inter-EXB text-[2.3em] text-left text-dark">
                         Calculation Results
                     </h1>
                     <!-- Divider -->
-                    <hr class="Divider border-primary w-full border-[0.2em] rounded-[0.4em]">
+                    <hr class="Divider border-dark w-full border-[0.2em] rounded-[0.4em]">
                 </div>
                 
                 <!-- Panel Body -->
@@ -152,7 +175,7 @@
                     <!-- Hourly Pay -->
                     <div class="Hourly-Pay
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#eaf3ff] rounded-[1.5em]">
+                    bg-stats-box rounded-[1.5em]">
                         <!-- Hourly Pay Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"
@@ -160,12 +183,12 @@
                         <div class="Stats
                         flex flex-col justify-center items-end">
                             <h3 class="Title
-                            font-Inter-M text-[1.25em] text-right text-primary">
+                            font-Inter-M text-[1.25em] text-right text-stats-name">
                                 Hourly Pay
                             </h3>
                             <h1 class="Amount
                             font-Inter-B text-[2.5em] text-right text-primary">
-                                $34.62
+                                $0.00
                             </h1>
                         </div>
                     </div>
@@ -173,7 +196,7 @@
                     <!-- Monthly Pay -->
                     <div class="Monthly-Pay
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#eaf3ff] rounded-[1.5em]">
+                    bg-stats-box rounded-[1.5em]">
                         <!-- Monthly Pay Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"
@@ -181,12 +204,12 @@
                         <div class="Stats
                         flex flex-col justify-center items-end">
                             <h3 class="Title
-                            font-Inter-M text-[1.25em] text-right text-primary">
+                            font-Inter-M text-[1.25em] text-right text-stats-name">
                                 Monthly Pay (avg)
                             </h3>
                             <h1 class="Amount
                             font-Inter-B text-[2.5em] text-right text-primary">
-                                $6000
+                                $0
                             </h1>
                         </div>
                     </div>
@@ -194,7 +217,7 @@
                     <!-- Per Week -->
                     <div class="Weekly-Pay
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#eaf3ff] rounded-[1.5em]">
+                    bg-stats-box rounded-[1.5em]">
                         <!-- Per Week Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"
@@ -202,12 +225,12 @@
                         <div class="Stats
                         flex flex-col justify-center items-end">
                             <h3 class="Title
-                            font-Inter-M text-[1.25em] text-right text-primary">
+                            font-Inter-M text-[1.25em] text-right text-stats-name">
                                 Per Week
                             </h3>
                             <h1 class="Amount
                             font-Inter-B text-[2.5em] text-right text-primary">
-                                $1384.62
+                                $0.00
                             </h1>
                         </div>
                     </div>
@@ -215,7 +238,7 @@
                     <!-- % of US Median Salary -->
                     <div class="Percent-US-Median-Salary
                     flex flex-row justify-between items-center p-[1.5em] w-full h-full
-                    bg-[#eaf3ff] rounded-[1.5em]">
+                    bg-stats-box rounded-[1.5em]">
                         <!-- % of US Median Salary Icon -->
                         <img class="Icon
                         w-fit h-[4.5em]"
@@ -223,12 +246,12 @@
                         <div class="Stats
                         flex flex-col justify-center items-end">
                             <h3 class="Title
-                            font-Inter-M text-[1.25em] text-right text-primary">
+                            font-Inter-M text-[1.25em] text-right text-stats-name">
                                 % of US median salary
                             </h3>
                             <h1 class="Amount
                             font-Inter-B text-[2.5em] text-right text-primary">
-                                121.6%
+                                0.0%
                             </h1>
                         </div>
                     </div>
@@ -236,6 +259,27 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Footer -->
+        <footer class="Footer text-[12px] sm:text-[16px]
+        bg-primary p-[2em] flex flex-col justify-center items-center gap-[1em]">
+            <div class="Developer-Block
+            flex flex-col justify-center items-center gap-[0.5em]">
+                <a href="https://www.diamonickportfolio.com/">
+                    <img class="Developer-Logo
+                    size-[4em]"
+                    src="./Assets/Icons/Portfolio_Logo.svg">
+                </a>
+                <p class="Developer-Name
+                text-[1em] text-center text-white font-Inter-B">
+                Diamonick Dunn
+                </p>
+            </div>
+            <p class="Copyright-Info
+            text-[1em] text-center text-white font-Inter-M">
+            © 2024 by Diamonick Dunn.
+            </p>
+        </footer>
         </div>
     </div>
 </body>

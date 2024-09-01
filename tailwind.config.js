@@ -24,7 +24,7 @@ module.exports = {
         'md-lg': '896px',
         // => @media (min-width: 896px) { ... }
   
-        'lg': '1080px',
+        'lg': '1024px',
         // => @media (min-width: 1080px) { ... }
   
         'xl': '1280px',
@@ -64,6 +64,10 @@ module.exports = {
         'light': '#0071e3',
         'light-transparent': 'rgba(0, 113, 227, 0.2)',
         'light-invisible': 'rgba(0, 113, 227, 0)',
+        'dark': '#1B2A4E',
+        'paragraph': '#506690',
+        'stats-name': '#869AB8',
+        'stats-box': '#eaf3ff',
         'placeholder': '#c0dbff',
         'background': '#f5f5f7'
       },
@@ -74,10 +78,29 @@ module.exports = {
       },
       dropShadow:
       {
-        'default': '0 16px 16px rgba(0, 113, 227, 0.10)',
-        'field': '0 8px 8px rgba(0, 113, 227, 0.25)',
-        'button': '0 12px 8px rgba(0, 113, 227, 0.25)'
+        'default': '0 1em 1em rgba(0, 113, 227, 0.25)',
+        'field': '0 0.5em 0.5em rgba(0, 113, 227, 0.25)',
+        'button': '0 0.75em 0.5em rgba(0, 113, 227, 0.25)',
+        'app-logo': '0 0.5em 0.5em rgba(0, 0, 0, 0.33)',
       },
+      backgroundImage:
+      {
+        'Dotted-Grid-Pattern': "url('./Assets/Math_Symbols_Grid_Pattern.png')"
+      },
+      backgroundSize:
+      {
+        'grid-size': '400px'
+      },
+      animation:
+      {
+        'grid-infinite-scroll': 'infinite-scroll 45s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+          '0%':   { 'background-position': '0px 0px' },
+          '100%': { 'background-position': '-1600px -1600px'}
+        }
+      }
     },
   },
   plugins: [],

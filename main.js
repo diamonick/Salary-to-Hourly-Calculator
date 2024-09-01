@@ -28,10 +28,20 @@ class Button
         this.isActive = true;
 
         let $self = this;
+
+        // Mouse events
         this.element.addEventListener("mouseenter", function() {$self.highlightButton();});
         this.element.addEventListener("mouseleave", function() {$self.unhighlightButton();});
         this.element.addEventListener("mousedown", function() {$self.onPress();});
         this.element.addEventListener("mouseup", function() {$self.onRelease();});
+        
+        // Touch events
+        this.element.addEventListener("touchstart", function(event) {
+            $self.onPress();
+        });
+        this.element.addEventListener("touchend", function(event) {
+            $self.onRelease();
+        });
     }
     
     //#region Button Function(s)
@@ -140,7 +150,7 @@ class InputField
             paused: true,
             borderColor: 'rgba(0, 163, 255, 1)',
             outlineColor: 'rgba(0, 163, 255, 0.2)',
-            outlineWidth: '8px'
+            outlineWidth: '0.4em'
         });
 
         this.focusAnim = gsap.to(this.element,
@@ -148,7 +158,7 @@ class InputField
             duration: 0.25,
             paused: true,
             borderColor: 'rgba(0, 113, 227, 1)',
-            outlineWidth: '8px'
+            outlineWidth: '0.4em'
         });
     }
     
@@ -219,12 +229,19 @@ const hoursPerWeekField = new InputField(".Hours-Per-Week-Field");
 const weeksPerYearField = new InputField(".Weeks-Per-Year-Field");
 const calculateButton = new Button(".Calculate-Button", "#0071e3", "#00A3FF", "#004fbd");
 
+const hourlyPayBox = getElement(".Hourly-Pay");
+const monthlyPayBox = getElement(".Monthly-Pay");
+const weeklyPayBox = getElement(".Weekly-Pay");
+const percentUSMedianSalaryBox = getElement(".Percent-US-Median-Salary");
+
 const hourlyPayAmount = getElement(".Hourly-Pay .Amount");
 const monthlyPayAmount = getElement(".Monthly-Pay .Amount");
 const weeklyPayAmount = getElement(".Weekly-Pay .Amount");
 const percentUSMedianSalaryAmount = getElement(".Percent-US-Median-Salary .Amount");
 
 const USMedianSalary = 59228;
+const calculatingTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.in'}});
+const resultsTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.out'}});
 //#endregion
 
 function Main()
@@ -235,10 +252,11 @@ function Main()
 
 async function calculateResults()
 {
-    let hourlyPayAmountText, monthlyPayAmountText, weeklyPayAmountText, percentUSMedianSalaryAmountText;
+    const offsetX = '3em';
+    const offsetY= '3em';
+    let isRunning = true;
 
     let iterationCount = 0;
-    let numOfIterations = 25;
     let hourlyPay = calculateHourlyPay();
     let monthlyPay = calculateMonthlyPay();
     let weeklyPay = calculateWeeklyPay();
@@ -248,11 +266,21 @@ async function calculateResults()
     let monthlyPayDigitCount = Math.ceil(Math.log10(monthlyPay + 1));
     let weeklyPayDigitCount = Math.ceil(Math.log10(weeklyPay + 1));
     let percentOfUSMedianSalaryDigitCount = Math.ceil(Math.log10(weeklyPay + 1));
+    
+    calculatingTL
+        .set(hourlyPayBox, {x: 0, y: 0, opacity: 1})
+        .set(monthlyPayBox, {x: 0, y: 0, opacity: 1})
+        .set(weeklyPayBox, {x: 0, y: 0, opacity: 1})
+        .set(percentUSMedianSalaryBox, {x: 0, y: 0, opacity: 1})
+        .to(hourlyPayBox, {x: offsetX, opacity: 0})
+        .to(monthlyPayBox, {x: offsetX, opacity: 0}, getRelDelay(0.1))
+        .to(weeklyPayBox, {x: offsetX, opacity: 0}, getRelDelay(0.1))
+        .to(percentUSMedianSalaryBox, {x: offsetX, opacity: 0}, getRelDelay(0.1));
 
-    while (iterationCount < numOfIterations)
+    invoke(function() {isRunning = false;}, 0.6);
+
+    while (isRunning)
     {
-        iterationCount++;
-        
         let hourlyPayRandomValue = getRandRange(Math.pow(10, hourlyPayDigitCount - 1), Math.pow(10, hourlyPayDigitCount), 2);
         let monthlyPayRandomValue = getRandRange(Math.pow(10, monthlyPayDigitCount - 1), Math.pow(10, hourlyPayDigitCount), 2);
         let weeklyPayRandomValue = getRandRange(Math.pow(10, weeklyPayDigitCount - 1), Math.pow(10, weeklyPayDigitCount), 2);
@@ -270,6 +298,16 @@ async function calculateResults()
     monthlyPayAmount.innerHTML = `$${monthlyPay}`;
     weeklyPayAmount.innerHTML = `$${weeklyPay}`;
     percentUSMedianSalaryAmount.innerHTML = `${percentOfUSMedianSalary.toFixed(1)}%`;
+    
+    resultsTL
+        .set(hourlyPayBox, {x: 0, y: offsetY, opacity: 0})
+        .set(monthlyPayBox, {x: 0, y: offsetY, opacity: 0})
+        .set(weeklyPayBox, {x: 0, y: offsetY, opacity: 0})
+        .set(percentUSMedianSalaryBox, {x: 0, y: offsetY, opacity: 0})
+        .to(hourlyPayBox, {y: 0, opacity: 1})
+        .to(monthlyPayBox, {y: 0, opacity: 1}, getRelDelay(0.1))
+        .to(weeklyPayBox, {y: 0, opacity: 1}, getRelDelay(0.1))
+        .to(percentUSMedianSalaryBox, {y: 0, opacity: 1}, getRelDelay(0.1));
 }
 
 //#region Calculation Function(s)
