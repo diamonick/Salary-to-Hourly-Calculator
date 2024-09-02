@@ -134,9 +134,7 @@ class Icon
         // Mouse events
         this.element.addEventListener("mouseenter", function() {$self.highlightIcon();});
         this.element.addEventListener("mouseleave", function() {$self.unhighlightIcon();});
-        this.element.addEventListener("touchstart", function(event) {
-            event.preventDefault();
-        });
+        this.element.addEventListener("touchstart", function(event) {event.preventDefault();});
     }
     
     //#region Icon Function(s)
@@ -302,12 +300,16 @@ function Main()
 
     playSplashScreenIntro();
     unloadScrollBars();
+
+    $(window).on('beforeunload', function()
+    {
+        $(window).scrollTop(0);
+    });
 }
 
 function playSplashScreenIntro()
 {
     splashScreenIntroTL
-        .set(window, {scrollTo: {y: 0, x: 0} })
         .set(salaryToHourlyCalculatorPanel, {x: 0, y: 64, opacity: 0, pointerEvents: 'none'})
         .set(calculationResultsPanel, {x: 0, y: 64, opacity: 0, pointerEvents: 'none'})
         .set(splashAppBlock, {scale: 1, opacity: 0})

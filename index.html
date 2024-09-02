@@ -6,6 +6,7 @@
     <title>Salary to Hourly Calculator</title>
     <link rel="icon" type="image/svg" href="./Assets/Icons/Favicon.svg">
     <link rel="stylesheet" href="tailwindStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js" defer></script>
     <script type="module" src="./main.js" defer></script>
@@ -81,7 +82,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                     <div class="Salary
                     flex flex-col justify-start items-start gap-[0.5em] w-full h-full">
                         <!-- Salary Title -->
-                        <div class="Full-Title
+                        <div class="Full-Title text-[1.2em] mobile-lg:text-[1em]
                         flex flex-row justify-start items-center w-full gap-[1em]">
                             <img class="Salary-Icon size-[1.75em]"
                             src="./Assets/Icons/Salary_Icon.svg" alt="Salary Icon">
@@ -91,12 +92,12 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                             </h3>
                         </div>
                         <!-- Salary Field -->
-                        <div class="Full-Field relative flex w-full sm:w-[24em] h-[4em]">
-                            <img class="Icon absolute v-center left-[1em] size-[2em] z-10"
+                        <div class="Full-Field relative flex w-full sm:w-[24em] h-[5em] mobile-lg:h-[4em]">
+                            <img class="Icon absolute v-center left-[1.25em] mobile-lg:left-[1em] size-[2.5em] mobile-lg:size-[2em] z-10"
                             src="./Assets/Icons/USD_Icon.svg" alt="Salary Icon">
                             <input class="Salary-Field
-                            bg-white focus:bg-white w-full h-full pl-[2.5em] p-[1em] rounded-[0.75em]
-                            font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
+                            bg-white focus:bg-white w-full h-full pl-[2.2em] mobile-md:pl-[2.4em] mobile-lg:pl-[2.25em] p-[1em] rounded-[0.75em]
+                            font-Inter-M text-[16px] sm:text-[1.5em] text-left text-primary placeholder-placeholder
                             border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
                             type="number" placeholder="30000" value="30000" min="0" max="9999999">
@@ -107,7 +108,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                     <div class="Hours-Worked-Per-Week
                     flex flex-col justify-start items-start gap-[0.5em] w-full h-full">
                         <!-- Hours Worked Per Week Title -->
-                        <div class="Full-Title
+                        <div class="Full-Title text-[1.2em] mobile-lg:text-[1em]
                         flex flex-row justify-start items-center w-full gap-[1em]">
                             <img class="Hours-Worked-Per-Week-Icon size-[1.75em]"
                             src="./Assets/Icons/Hours_Per_Week_Icon.svg" alt="Salary Icon">
@@ -117,10 +118,10 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                             </h3>
                         </div>
                         <!-- Hours Worked Per Week Field -->
-                        <div class="Full-Field relative flex w-full sm:w-[24em] h-[4em]">
+                        <div class="Full-Field relative flex w-full sm:w-[24em] h-[5em] mobile-lg:h-[4em]">
                             <input class="Hours-Per-Week-Field
-                            bg-white focus:bg-white w-full h-full p-[1em] rounded-[0.75em]
-                            font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
+                            bg-white focus:bg-white w-full h-full pl-[0.75em] p-[1em] rounded-[0.75em]
+                            font-Inter-M text-[16px] sm:text-[1.5em] text-left text-primary placeholder-placeholder
                             border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
                             type="number" placeholder="40" value="40" min="0" max="999">
@@ -131,7 +132,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                     <div class="Weeks-Worked-Per-Year
                     flex flex-col justify-start items-start gap-[0.5em] w-full h-full">
                         <!-- Weeks Worked Per Year Title -->
-                        <div class="Full-Title
+                        <div class="Full-Title text-[1.2em] mobile-lg:text-[1em]
                         flex flex-row justify-start items-center w-full gap-[1em]">
                             <img class="Weeks-Worked-Per-Year-Icon size-[1.75em]"
                             src="./Assets/Icons/Weeks_Per_Year_Icon.svg" alt="Salary Icon">
@@ -141,10 +142,10 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                             </h3>
                         </div>
                         <!-- Weeks Worked Per Year Field -->
-                        <div class="Full-Field relative flex w-full sm:w-[24em] h-[4em]">
+                        <div class="Full-Field relative flex w-full sm:w-[24em] h-[5em] mobile-lg:h-[4em]">
                             <input class="Weeks-Per-Year-Field
-                            bg-white focus:bg-white w-full h-full p-[1em] rounded-[0.75em]
-                            font-Inter-M text-[1.5em] text-left text-primary placeholder-placeholder
+                            bg-white focus:bg-white w-full h-full pl-[0.75em] p-[1em] rounded-[0.75em]
+                            font-Inter-M text-[16px] sm:text-[1.5em] text-left text-primary placeholder-placeholder
                             border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
                             type="number" placeholder="52" value="52" min="0" max="999">
