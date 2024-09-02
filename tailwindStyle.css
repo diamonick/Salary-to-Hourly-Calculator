@@ -643,6 +643,11 @@ input[type="number"]::-webkit-inner-spin-button,
   height: 8em;
 }
 
+.size-\[4\.5em\] {
+  width: 4.5em;
+  height: 4.5em;
+}
+
 .h-\[1\.75em\] {
   height: 1.75em;
 }
@@ -690,6 +695,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .w-screen {
   width: 100vw;
+}
+
+.w-\[4\.5em\] {
+  width: 4.5em;
 }
 
 @keyframes infinite-scroll {
