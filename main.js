@@ -341,6 +341,12 @@ async function calculateResults()
     let monthlyPayDigitCount = Math.ceil(Math.log10(monthlyPay + 1));
     let weeklyPayDigitCount = Math.ceil(Math.log10(weeklyPay + 1));
     let percentOfUSMedianSalaryDigitCount = Math.ceil(Math.log10(weeklyPay + 1));
+
+    // Scroll to Calculation Results panel (tablet/mobile only).
+    if (window.innerWidth < 1024)
+    {
+        gsap.to(window, {duration: 1, scrollTo: calculationResultsPanel, ease: "power2.inOut"});
+    }
     
     calculatingTL
         .set(hourlyPayBox, {x: 0, y: 0, opacity: 1})
