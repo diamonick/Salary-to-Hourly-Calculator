@@ -2,6 +2,7 @@ export
 {
     getRand, getRandInt, getRandRange, getRandIntRange, getBalancedRandRange,
     getElement, getAllElements, sleep, getClamp,
+    reloadScrollBars, unloadScrollBars,
     getZeroRelDelay, getRelDelay,
     invoke, invokeRepeating
 };
@@ -62,6 +63,20 @@ function getClamp(num, min, max)
 {
     return Math.min(Math.max(num, min), max);
 }
+
+//#region Toggle Scroll Bars Function(s)
+function reloadScrollBars()
+{
+    document.documentElement.style.overflow = 'auto';  // firefox, chrome
+    document.body.scroll = "yes"; // ie only
+}
+
+function unloadScrollBars()
+{
+    document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+    document.body.scroll = "no"; // ie only
+}
+//#endregion
 
 //#region GSAP Helper Function(s)
 

@@ -2,6 +2,7 @@ import
 {
     getRand, getRandInt, getRandRange, getRandIntRange, getBalancedRandRange,
     getElement, getAllElements, sleep, getClamp,
+    reloadScrollBars, unloadScrollBars,
     getZeroRelDelay, getRelDelay,
     invoke, invokeRepeating
 } from './Assets/Scripts/helperFunctions.js';
@@ -289,8 +290,8 @@ const percentUSMedianSalaryAmount = getElement(".Percent-US-Median-Salary .Amoun
 
 const USMedianSalary = 59228;
 const splashScreenIntroTL = gsap.timeline();
-const calculatingTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.in'}});
-const resultsTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.out'}});
+let calculatingTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.in'}});
+let resultsTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.out'}});
 //#endregion
 
 function Main()
@@ -346,6 +347,19 @@ async function calculateResults()
     {
         gsap.to(window, {duration: 1, scrollTo: calculationResultsPanel, ease: "power2.inOut"});
     }
+
+    // Kill calculating timeline if the timeline is currently active.
+    if (calculatingTL.isActive())
+    {
+        calculatingTL.kill();
+        calculatingTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.in'}});
+    }
+    // Kill results timeline if the timeline is currently active.
+    if (resultsTL.isActive())
+    {
+        resultsTL.kill();
+        resultsTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.out'}});
+    }
     
     calculatingTL
         .set(hourlyPayBox, {x: 0, y: 0, opacity: 1})
@@ -372,6 +386,13 @@ async function calculateResults()
         percentUSMedianSalaryAmount.innerHTML = `${percentOfUSMedianSalaryRandomValue.toFixed(1)}%`;
 
         await sleep(0.025);
+    }
+
+    if (calculatingTL.isActive())
+    {
+        resultsTL.kill();
+        resultsTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.out'}});
+        return;
     }
 
     hourlyPayAmount.innerHTML = `$${hourlyPay}`;
@@ -443,33 +464,5 @@ function calculatePercentOfUSMedianSalary()
     return result;
 }
 //#endregion
-
-function shuffleText(text)
-{
-    var a = text.split(""),
-        n = a.length;
-
-    for (var i = n - 1; i > 0; i--)
-    {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
-    }
-
-    return a.join("");
-}
-
-function reloadScrollBars()
-{
-    document.documentElement.style.overflow = 'auto';  // firefox, chrome
-    document.body.scroll = "yes"; // ie only
-}
-
-function unloadScrollBars()
-{
-    document.documentElement.style.overflow = 'hidden';  // firefox, chrome
-    document.body.scroll = "no"; // ie only
-}
 
 Main();
