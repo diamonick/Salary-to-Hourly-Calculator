@@ -618,6 +618,10 @@ input[type="number"]::-webkit-inner-spin-button,
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .size-\[2\.5em\] {
   width: 2.5em;
   height: 2.5em;
@@ -1000,6 +1004,10 @@ input[type="number"]::-webkit-inner-spin-button,
 .placeholder-placeholder::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(192 219 255 / var(--tw-placeholder-opacity));
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .outline {

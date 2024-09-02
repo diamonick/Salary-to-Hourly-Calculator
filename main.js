@@ -300,29 +300,25 @@ function Main()
 
     //showPanels();
     playSplashScreenIntro();
+    unloadScrollBars();
 }
 
 function playSplashScreenIntro()
 {
     splashScreenIntroTL
+        .set(window, {scrollTo: {y: 0, x: 0} })
         .set(salaryToHourlyCalculatorPanel, {x: 0, y: 64, opacity: 0, pointerEvents: 'none'})
         .set(calculationResultsPanel, {x: 0, y: 64, opacity: 0, pointerEvents: 'none'})
         .set(splashAppBlock, {scale: 1, opacity: 0})
         .to(splashAppBlock, {duration: 1.5, delay: 0.25, opacity: 1})
         .to(splashAppBlock, {duration: 3, scale: 1.2, ease: 'none'}, getZeroRelDelay())
         .to(splashAppBlock, {duration: 1, opacity: 0}, getRelDelay(2))
-        .to(splashScreen, {duration: 0.5, opacity: 0})
-        .to(salaryToHourlyCalculatorPanel, {duration: 1, x: 0, y: 0, opacity: 1})
+        .call(() => reloadScrollBars())
+        .to(splashScreen, {duration: 0.5, opacity: 0}, getZeroRelDelay())
+        .to(salaryToHourlyCalculatorPanel, {duration: 1, x: 0, y: 0, opacity: 1}, getZeroRelDelay())
         .to(calculationResultsPanel, {duration: 1, x: 0, y: 0, opacity: 1}, getRelDelay(0.1))
         .set(salaryToHourlyCalculatorPanel, {pointerEvents: 'auto'})
         .set(calculationResultsPanel, {pointerEvents: 'auto'});
-}
-
-function showPanels()
-{
-    showPanelsTL
-        .to(salaryToHourlyCalculatorPanel, {duration: 1, x: 0, y: 0, opacity: 1})
-        .to(calculationResultsPanel, {duration: 1, x: 0, y: 0, opacity: 1}, getRelDelay(0.1));
 }
 
 async function calculateResults()
@@ -459,6 +455,18 @@ function shuffleText(text)
     }
 
     return a.join("");
+}
+
+function reloadScrollBars()
+{
+    document.documentElement.style.overflow = 'auto';  // firefox, chrome
+    document.body.scroll = "yes"; // ie only
+}
+
+function unloadScrollBars()
+{
+    document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+    document.body.scroll = "no"; // ie only
 }
 
 Main();
