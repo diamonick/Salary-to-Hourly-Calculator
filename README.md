@@ -1,7 +1,7 @@
 # Salary-to-Hourly-Calculator
 A salary to hourly calculator developed in HTML, Tailwind CSS, and Javascript. Easily convert your annual salary to an equivalent hourly wage and see how much you earn hourly, weekly, and monthly.
 
-🖥️Demo: TBA
+🖥️Demo: https://diamonick.github.io/Salary-to-Hourly-Calculator/
 
 # 📄How To Use
 * Enter your salary, hours worked per week, and weeks worked per year in the three (3) fields on the left.
