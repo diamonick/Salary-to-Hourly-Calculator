@@ -288,7 +288,6 @@ const percentUSMedianSalaryAmount = getElement(".Percent-US-Median-Salary .Amoun
 
 const USMedianSalary = 59228;
 const splashScreenIntroTL = gsap.timeline();
-const showPanelsTL = gsap.timeline({defaults: {ease: 'power4.out'}});
 const calculatingTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.in'}});
 const resultsTL = gsap.timeline({defaults: {duration: 0.25, ease: 'power2.out'}});
 //#endregion
@@ -298,7 +297,6 @@ function Main()
     // Add calculateResults function to this button's onclick event.
     calculateButton.addEvent("click", calculateResults);
 
-    //showPanels();
     playSplashScreenIntro();
     unloadScrollBars();
 }
