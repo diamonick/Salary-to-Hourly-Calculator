@@ -134,6 +134,9 @@ class Icon
         // Mouse events
         this.element.addEventListener("mouseenter", function() {$self.highlightIcon();});
         this.element.addEventListener("mouseleave", function() {$self.unhighlightIcon();});
+        this.element.addEventListener("touchstart", function(event) {
+            event.preventDefault();
+        });
     }
     
     //#region Icon Function(s)
