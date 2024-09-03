@@ -49,13 +49,13 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
         </div>
 
         <div class="Main-Content relative
-        flex flex-col lg:flex-row justify-center items-center gap-[3em] w-full h-full px-[2em] py-[4em]
+        flex flex-col lg:flex-row justify-center items-center gap-[3em] w-full h-full px-[2em] py-[4em] sm:py-[2em]
         bg-repeat bg-fixed bg-Dotted-Grid-Pattern bg-grid-size animate-grid-infinite-scroll bg-opacity-10">
 
             <!-- Salary to Hourly Calculator (Left) -->
             <div class="Salary-To-Hourly-Calculator-Panel relative
             flex flex-col justify-between items-center gap-[2em] p-[2em]
-            bg-white w-full min-h-[50em] sm:min-h-[48em] rounded-panel drop-shadow-default">
+            bg-white w-full min-h-[50em] sm:min-h-[48em] sm:h-[52em] rounded-panel drop-shadow-default">
 
                 <!-- Panel Header -->
                 <div class="Panel-Header w-full">
@@ -100,7 +100,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                             font-Inter-M text-[16px] sm:text-[1.5em] text-left text-primary placeholder-placeholder
                             border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
-                            type="number" placeholder="30000" value="30000" min="0" max="9999999">
+                            type="number" placeholder="30000" value="30000" min="1" max="999999">
                         </div>
                     </div>
                     
@@ -124,7 +124,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                             font-Inter-M text-[16px] sm:text-[1.5em] text-left text-primary placeholder-placeholder
                             border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
-                            type="number" placeholder="40" value="40" min="0" max="999">
+                            type="number" placeholder="40" value="40" min="1" max="99">
                         </div>
                     </div>
                     
@@ -148,7 +148,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                             font-Inter-M text-[16px] sm:text-[1.5em] text-left text-primary placeholder-placeholder
                             border-light-invisible border-[0.2em]
                             outline outline-light-invisible drop-shadow-field z-0"
-                            type="number" placeholder="52" value="52" min="0" max="999">
+                            type="number" placeholder="52" value="52" min="1" max="99">
                         </div>
                     </div>
                 </div>
@@ -170,8 +170,8 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
             
             <!-- Calculation Results (Right) -->
             <div class="Calculation-Results-Panel relative
-            flex flex-col justify-between items-start p-[2em] gap-[2em]
-            bg-white w-full min-h-[50em] sm:min-h-[48em] rounded-panel drop-shadow-default">
+            flex flex-col justify-between items-center gap-[2em] p-[2em]
+            bg-white w-full min-h-[50em] sm:min-h-[50em] sm:h-[52em] rounded-panel drop-shadow-default">
 
                 <!-- Panel Header -->
                 <div class="Panel-Header w-full">
@@ -203,7 +203,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                                 Hourly Pay
                             </h3>
                             <h1 class="Amount
-                            font-Inter-B text-[2.5em] text-right text-primary">
+                            font-Inter-B text-[2.75em] text-right text-primary">
                                 $0.00
                             </h1>
                         </div>
@@ -224,7 +224,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                                 Monthly Pay (avg)
                             </h3>
                             <h1 class="Amount
-                            font-Inter-B text-[2.5em] text-right text-primary">
+                            font-Inter-B text-[2.75em] text-right text-primary">
                                 $0
                             </h1>
                         </div>
@@ -245,7 +245,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                                 Per Week
                             </h3>
                             <h1 class="Amount
-                            font-Inter-B text-[2.5em] text-right text-primary">
+                            font-Inter-B text-[2.75em] text-right text-primary">
                                 $0.00
                             </h1>
                         </div>
@@ -266,7 +266,7 @@ bg-background m-0 p-0 min-h-screen overflow-x-hidden overflow-y-auto">
                                 % of US median salary
                             </h3>
                             <h1 class="Amount
-                            font-Inter-B text-[2.5em] text-right text-primary">
+                            font-Inter-B text-[2.75em] text-right text-primary">
                                 0.0%
                             </h1>
                         </div>

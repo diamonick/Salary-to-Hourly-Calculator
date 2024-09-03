@@ -209,6 +209,21 @@ class InputField
         return this.element.value;
     }
 
+    getMinValue()
+    {
+        return this.element.min;
+    }
+
+    getMaxValue()
+    {
+        return this.element.max;
+    }
+    
+    getClampedValue()
+    {
+        return getClamp(this.getValue(), this.getMinValue(), this.getMaxValue());
+    }
+
     // Enable input field.
     enableInputField()
     {
@@ -254,6 +269,7 @@ class InputField
         this.isFocused = false;
         this.focusAnim.reverse();
         this.offHover();
+        this.element.value = this.getClampedValue();
     }
     //#endregion
 }
